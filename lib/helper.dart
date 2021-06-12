@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 String emoji({String country = "US"}) {
   int flagOffset = 0x1F1E6;
@@ -21,4 +21,14 @@ class MediaQueryApp {
     media = query;
     querySize = query.size;
   }
+}
+
+void nextScreen(BuildContext context, Widget widget) {
+  Navigator.push(context, MaterialPageRoute(builder: (context) {
+    return widget;
+  }));
+}
+
+void prevScreen(BuildContext context) {
+  Navigator.pop(context);
 }
