@@ -125,21 +125,12 @@ class UserProfile extends StatelessWidget {
   }
 }
 
-class InputComponent extends StatefulWidget {
+class InputComponent extends StatelessWidget {
   const InputComponent({Key? key}) : super(key: key);
-
-  @override
-  _InputComponentState createState() => _InputComponentState();
-}
-
-class _InputComponentState extends State<InputComponent> {
-  TextEditingController inputController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      onChanged: (value) => setState(() {}),
-      controller: inputController,
       decoration: InputDecoration(
         hintText: 'Input country here...',
         prefixIcon: Icon(Icons.search),

@@ -53,18 +53,24 @@ class _DetailLocationState extends State<DetailLocation> {
                               ),
                             ),
                           ),
-                          Container(
-                            margin: EdgeInsets.all(20),
-                            decoration: BoxDecoration(
-                              color: white,
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            child: IconButton(
-                              color: purple1,
-                              icon: Icon(Icons.arrow_back),
-                              onPressed: () => prevScreen(context),
-                            ),
-                          )
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.all(20),
+                                decoration: BoxDecoration(
+                                  color: white,
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                child: IconButton(
+                                  color: purple1,
+                                  icon: Icon(Icons.arrow_back),
+                                  onPressed: () => prevScreen(context),
+                                ),
+                              ),
+                              FavoritePlaceIcon(placeName: data.name),
+                            ],
+                          ),
                         ],
                       ),
                       Container(
@@ -109,10 +115,12 @@ class _DetailLocationState extends State<DetailLocation> {
                     children: [
                       Text("Description", style: poppinHeadline2),
                       SizedBox(height: 10),
-                      Text(desc,
-                          style: poppinBody.merge(
-                            TextStyle(color: black),
-                          )),
+                      Text(
+                        desc,
+                        style: poppinBody.merge(
+                          TextStyle(color: black),
+                        ),
+                      ),
                     ],
                   ),
                 )
@@ -149,6 +157,46 @@ class LocationDesc extends StatelessWidget {
         ),
         Text(value, style: poppinHeadline2)
       ],
+    );
+  }
+}
+
+class FavoritePlaceIcon extends StatefulWidget {
+  final placeName;
+  const FavoritePlaceIcon({Key? key, required this.placeName})
+      : super(key: key);
+
+  @override
+  _FavoritePlaceIconState createState() => _FavoritePlaceIconState();
+}
+
+class _FavoritePlaceIconState extends State<FavoritePlaceIcon> {
+  bool isFavorite = false;
+
+  @override
+  Widget build(BuildContext context) {
+    var data = widget.placeName;
+    var indexData = favPlace.indexWhere((element) => element == data);
+    return Container(
+      margin: EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: indexData >= 0 ? purple3 : white,
+        borderRadius: BorderRadius.circular(50),
+      ),
+      child: IconButton(
+        color: purple1,
+        icon: Icon(indexData >= 0 ? Icons.favorite : Icons.favorite_border),
+        onPressed: () {
+          setState(() {
+            if (indexData < 0) {
+              favPlace.add(data);
+            } else {
+              favPlace.removeAt(indexData);
+            }
+            isFavorite = !isFavorite;
+          });
+        },
+      ),
     );
   }
 }
