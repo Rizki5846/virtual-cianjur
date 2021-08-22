@@ -12,7 +12,7 @@ This Flutter project contains criteria submission from Dicoding's Submission:
 
 TravelAppBWA still don't have API request. Just UI only.
 
-
+![Image](https://github.com/gwijaya94/travel-app-bwa/blob/master/assets/images/app_preview.png)
 
 <!-- 
 ## Getting Started
