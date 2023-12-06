@@ -116,11 +116,11 @@ class _DetailLocationState extends State<DetailLocation> {
                       Text("Description", style: poppinHeadline2),
                       SizedBox(height: 10),
                       Text(
-                        desc,
-                        style: poppinBody.merge(
-                          TextStyle(color: black),
+                          data.desc(),
+                          style: poppinBody.merge(
+                            TextStyle(color: black),
+                          ),
                         ),
-                      ),
                     ],
                   ),
                 )

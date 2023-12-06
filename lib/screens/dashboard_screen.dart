@@ -5,8 +5,8 @@ import 'package:travelappbwa/dummy_data.dart';
 import 'package:travelappbwa/fonts.dart';
 import 'package:travelappbwa/helper.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class DashboardScreen extends StatelessWidget {
+  const DashboardScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
                   margin: EdgeInsets.fromLTRB(0, 20, 0, 10),
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Text(
-                    'Let’s enjoy your${'\n'}Vacation',
+                    'Wilujeng Sumping di ${'\n'}Cianjur Virtual Tourism',
                     style: poppinHeadline,
                   ),
                 ),
@@ -40,7 +40,7 @@ class HomeScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text('Popular Countries', style: poppinHeadline2),
+                      Text('Tempat Populer', style: poppinHeadline2),
                       Text("See All", style: poppinBody),
                     ],
                   ),
